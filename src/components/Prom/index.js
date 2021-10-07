@@ -1,10 +1,17 @@
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
 import { usePromBeers } from "../../providers/PromBeers";
 
 const Prom = () => {
   const history = useHistory();
 
-  const { promBeers } = usePromBeers();
+  const { promBeers, setPromBeers } = usePromBeers();
+
+  const clickRemoveBeer = (item) => {
+    const filteredBeers = promBeers.filter((beer) => beer.id !== item.id);
+    setPromBeers(filteredBeers);
+    toast.success(`Não terá mais ${item.name} na confraternização =(`);
+  };
 
   if (promBeers.length === 0) {
     return (
@@ -31,6 +38,7 @@ const Prom = () => {
               <h5>
                 {item.volume.value} {item.volume.unit}
               </h5>
+              <button onClick={() => clickRemoveBeer(item)}>Remover</button>
             </li>
           );
         })}

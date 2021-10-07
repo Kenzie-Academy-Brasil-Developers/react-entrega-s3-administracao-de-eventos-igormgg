@@ -1,10 +1,17 @@
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
 import { useWeddingBeers } from "../../providers/WeddingBeers";
 
 const Wedding = () => {
   const history = useHistory();
 
-  const { weddingBeers } = useWeddingBeers();
+  const { weddingBeers, setWeddingBeers } = useWeddingBeers();
+
+  const clickRemoveBeer = (item) => {
+    const filteredBeers = weddingBeers.filter((beer) => beer.id !== item.id);
+    setWeddingBeers(filteredBeers);
+    toast.success(`Não terá mais ${item.name} na confraternização =(`);
+  };
 
   if (weddingBeers.length === 0) {
     return (
@@ -31,6 +38,7 @@ const Wedding = () => {
               <h5>
                 {item.volume.value} {item.volume.unit}
               </h5>
+              <button onClick={() => clickRemoveBeer(item)}>Remover</button>
             </li>
           );
         })}

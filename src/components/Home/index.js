@@ -45,10 +45,14 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home</h1>
-      <button onClick={() => history.push("/confraternization")}>Confra</button>
-      <button onClick={() => history.push("/prom")}>Prom</button>
-      <button onClick={() => history.push("/wedding")}>Wedding</button>
+      <div>
+        <h1>Home</h1>
+        <button onClick={() => history.push("/confraternization")}>
+          Confra
+        </button>
+        <button onClick={() => history.push("/prom")}>Prom</button>
+        <button onClick={() => history.push("/wedding")}>Wedding</button>
+      </div>
       <ul>
         {beers.map((item, index) => {
           return (
