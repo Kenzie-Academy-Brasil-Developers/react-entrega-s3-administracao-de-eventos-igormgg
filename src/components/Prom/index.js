@@ -1,6 +1,7 @@
 import { useHistory } from "react-router";
 import { toast } from "react-toastify";
 import { usePromBeers } from "../../providers/PromBeers";
+import { Container, NoDrinksContainer } from "../styles";
 
 const Prom = () => {
   const history = useHistory();
@@ -15,22 +16,39 @@ const Prom = () => {
 
   if (promBeers.length === 0) {
     return (
-      <div>
-        <h1>Uma formatura sem bebidas? Não vai rolar!</h1>
-        <button onClick={() => history.push("/")}>Adicionar bebidas</button>
-      </div>
+      <NoDrinksContainer>
+        <div className="header">
+          <h1>Formatura</h1>
+          <div>
+            <button onClick={() => history.push("/")}>Bebidas</button>
+            <button onClick={() => history.push("/confraternization")}>
+              Contraternização
+            </button>
+            <button onClick={() => history.push("/wedding")}>Casamento</button>
+          </div>
+        </div>
+        <div className="noDrinksDivFather">
+          <div className="noDrinksDiv">
+            <h1>Uma formatura sem bebidas?</h1>
+            <h1>Não vai rolar!</h1>
+            <button onClick={() => history.push("/")}>Adicionar bebidas</button>
+          </div>
+        </div>
+      </NoDrinksContainer>
     );
   }
 
   return (
-    <div>
+    <Container>
       <div className="header">
         <h1>Formatura</h1>
-        <button onClick={() => history.push("/")}>Bebidas</button>
-        <button onClick={() => history.push("/confraternization")}>
-          Contraternização
-        </button>
-        <button onClick={() => history.push("/wedding")}>Casamento</button>
+        <div>
+          <button onClick={() => history.push("/")}>Bebidas</button>
+          <button onClick={() => history.push("/confraternization")}>
+            Contraternização
+          </button>
+          <button onClick={() => history.push("/wedding")}>Casamento</button>
+        </div>
       </div>
       <ul>
         {promBeers.map((item, index) => {
@@ -49,7 +67,7 @@ const Prom = () => {
           );
         })}
       </ul>
-    </div>
+    </Container>
   );
 };
 

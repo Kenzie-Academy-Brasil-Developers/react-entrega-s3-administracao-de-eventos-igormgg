@@ -1,6 +1,7 @@
 import { useHistory } from "react-router";
 import { toast } from "react-toastify";
 import { useConfraBeers } from "../../providers/ConfraBeers";
+import { Container, NoDrinksContainer } from "../styles";
 
 const Confraternization = () => {
   const history = useHistory();
@@ -15,20 +16,35 @@ const Confraternization = () => {
 
   if (confraBeers.length === 0) {
     return (
-      <div>
-        <h1>Uma confraternização sem bebidas? Não vai rolar!</h1>
-        <button onClick={() => history.push("/")}>Adicionar bebidas</button>
-      </div>
+      <NoDrinksContainer>
+        <div className="header">
+          <h1>Confraternização</h1>
+          <div>
+            <button onClick={() => history.push("/")}>Bebidas</button>
+            <button onClick={() => history.push("/prom")}>Formatura</button>
+            <button onClick={() => history.push("/wedding")}>Casamento</button>
+          </div>
+        </div>
+        <div className="noDrinksDivFather">
+          <div className="noDrinksDiv">
+            <h1>Uma confraternização sem bebidas?</h1>
+            <h1>Não vai rolar!</h1>
+            <button onClick={() => history.push("/")}>Adicionar bebidas</button>
+          </div>
+        </div>
+      </NoDrinksContainer>
     );
   }
 
   return (
-    <div>
+    <Container>
       <div className="header">
         <h1>Confraternização</h1>
-        <button onClick={() => history.push("/")}>Bebidas</button>
-        <button onClick={() => history.push("/prom")}>Formatura</button>
-        <button onClick={() => history.push("/wedding")}>Casamento</button>
+        <div>
+          <button onClick={() => history.push("/")}>Bebidas</button>
+          <button onClick={() => history.push("/prom")}>Formatura</button>
+          <button onClick={() => history.push("/wedding")}>Casamento</button>
+        </div>
       </div>
       <ul>
         {confraBeers.map((item, index) => {
@@ -47,7 +63,7 @@ const Confraternization = () => {
           );
         })}
       </ul>
-    </div>
+    </Container>
   );
 };
 

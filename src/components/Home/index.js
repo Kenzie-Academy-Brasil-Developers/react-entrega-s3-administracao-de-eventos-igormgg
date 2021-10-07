@@ -4,6 +4,7 @@ import { useBeers } from "../../providers/Beers";
 import { useConfraBeers } from "../../providers/ConfraBeers";
 import { usePromBeers } from "../../providers/PromBeers";
 import { useWeddingBeers } from "../../providers/WeddingBeers";
+import { Container } from "../styles";
 
 const Home = () => {
   const history = useHistory();
@@ -44,14 +45,16 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <Container>
       <div className="header">
         <h1>Bebidas</h1>
-        <button onClick={() => history.push("/confraternization")}>
-          Confra
-        </button>
-        <button onClick={() => history.push("/prom")}>Prom</button>
-        <button onClick={() => history.push("/wedding")}>Wedding</button>
+        <div>
+          <button onClick={() => history.push("/confraternization")}>
+            Confraternização
+          </button>
+          <button onClick={() => history.push("/prom")}>Formatura</button>
+          <button onClick={() => history.push("/wedding")}>Casamento</button>
+        </div>
       </div>
       <ul>
         {beers.map((item, index) => {
@@ -78,7 +81,7 @@ const Home = () => {
           );
         })}
       </ul>
-    </div>
+    </Container>
   );
 };
 

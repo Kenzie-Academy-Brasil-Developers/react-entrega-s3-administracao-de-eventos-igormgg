@@ -1,6 +1,7 @@
 import { useHistory } from "react-router";
 import { toast } from "react-toastify";
 import { useWeddingBeers } from "../../providers/WeddingBeers";
+import { Container, NoDrinksContainer } from "../styles";
 
 const Wedding = () => {
   const history = useHistory();
@@ -15,22 +16,39 @@ const Wedding = () => {
 
   if (weddingBeers.length === 0) {
     return (
-      <div>
-        <h1>Um casamento sem bebidas? Não vai rolar!</h1>
-        <button onClick={() => history.push("/")}>Adicionar bebidas</button>
-      </div>
+      <NoDrinksContainer>
+        <div className="header">
+          <h1>Casamento</h1>
+          <div>
+            <button onClick={() => history.push("/")}>Bebidas</button>
+            <button onClick={() => history.push("/confraternization")}>
+              Confraternização
+            </button>
+            <button onClick={() => history.push("/prom")}>Formatura</button>
+          </div>
+        </div>
+        <div className="noDrinksDivFather">
+          <div className="noDrinksDiv">
+            <h1>Um casamento sem bebidas?</h1>
+            <h1>Não vai rolar!</h1>
+            <button onClick={() => history.push("/")}>Adicionar bebidas</button>
+          </div>
+        </div>
+      </NoDrinksContainer>
     );
   }
 
   return (
-    <div>
+    <Container>
       <div className="header">
         <h1>Casamento</h1>
-        <button onClick={() => history.push("/")}>Bebidas</button>
-        <button onClick={() => history.push("/confraternization")}>
-          Confraternização
-        </button>
-        <button onClick={() => history.push("/prom")}>Formatura</button>
+        <div>
+          <button onClick={() => history.push("/")}>Bebidas</button>
+          <button onClick={() => history.push("/confraternization")}>
+            Confraternização
+          </button>
+          <button onClick={() => history.push("/prom")}>Formatura</button>
+        </div>
       </div>
       <ul>
         {weddingBeers.map((item, index) => {
@@ -49,7 +67,7 @@ const Wedding = () => {
           );
         })}
       </ul>
-    </div>
+    </Container>
   );
 };
 
