@@ -24,8 +24,14 @@ const Prom = () => {
 
   return (
     <div>
-      <button onClick={() => history.push("/")}>Home</button>
-      <h1>Formatura</h1>
+      <div className="header">
+        <h1>Formatura</h1>
+        <button onClick={() => history.push("/")}>Bebidas</button>
+        <button onClick={() => history.push("/confraternization")}>
+          Contraternização
+        </button>
+        <button onClick={() => history.push("/wedding")}>Casamento</button>
+      </div>
       <ul>
         {promBeers.map((item, index) => {
           return (

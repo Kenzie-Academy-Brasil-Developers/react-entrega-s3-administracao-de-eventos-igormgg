@@ -24,8 +24,12 @@ const Confraternization = () => {
 
   return (
     <div>
-      <button onClick={() => history.push("/")}>Home</button>
-      <h1>Confraternização</h1>
+      <div className="header">
+        <h1>Confraternização</h1>
+        <button onClick={() => history.push("/")}>Bebidas</button>
+        <button onClick={() => history.push("/prom")}>Formatura</button>
+        <button onClick={() => history.push("/wedding")}>Casamento</button>
+      </div>
       <ul>
         {confraBeers.map((item, index) => {
           return (

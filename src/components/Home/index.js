@@ -45,8 +45,8 @@ const Home = () => {
 
   return (
     <div>
-      <div>
-        <h1>Home</h1>
+      <div className="header">
+        <h1>Bebidas</h1>
         <button onClick={() => history.push("/confraternization")}>
           Confra
         </button>

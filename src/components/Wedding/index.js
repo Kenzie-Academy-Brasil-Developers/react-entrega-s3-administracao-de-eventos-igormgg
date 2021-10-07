@@ -24,8 +24,14 @@ const Wedding = () => {
 
   return (
     <div>
-      <button onClick={() => history.push("/")}>Home</button>
-      <h1>Casamento</h1>
+      <div className="header">
+        <h1>Casamento</h1>
+        <button onClick={() => history.push("/")}>Bebidas</button>
+        <button onClick={() => history.push("/confraternization")}>
+          Confraternização
+        </button>
+        <button onClick={() => history.push("/prom")}>Formatura</button>
+      </div>
       <ul>
         {weddingBeers.map((item, index) => {
           return (
