@@ -50,19 +50,23 @@ const Prom = () => {
           <button onClick={() => history.push("/wedding")}>Casamento</button>
         </div>
       </div>
-      <ul>
+      <ul className="drinksDiv">
         {promBeers.map((item, index) => {
           return (
             <li key={index}>
-              <h1>{item.id}</h1>
-              <h2>{item.name}</h2>
-              <img alt={item.name} src={item.image_url} />
-              <h3>{item.first_brewed}</h3>
-              <h4>{item.description}</h4>
-              <h5>
-                {item.volume.value} {item.volume.unit}
-              </h5>
-              <button onClick={() => clickRemoveBeer(item)}>Remover</button>
+              <div>
+                <h1>{item.id}</h1>
+                <h2>{item.name}</h2>
+                <img alt={item.name} src={item.image_url} />
+                <h3>Fabricação: {item.first_brewed}</h3>
+                <h4>
+                  {item.volume.value} {item.volume.unit}
+                </h4>
+                <h5>{item.description}</h5>
+              </div>
+              <div>
+                <button onClick={() => clickRemoveBeer(item)}>Remover</button>
+              </div>
             </li>
           );
         })}

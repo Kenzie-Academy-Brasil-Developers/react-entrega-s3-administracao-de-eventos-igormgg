@@ -1,40 +1,5 @@
-:root {
-  color: #b3b0a2;
-  color: #293747;
-  color: #0c393c;
-  color: #232324;
-  color: #1a141b;
-}
-
 .App {
   min-height: 100vh;
   text-align: center;
   background-image: url("https://thumbs.dreamstime.com/b/hot-drinks-cocktails-seamless-pattern-hand-drawn-doodle-beverages-background-your-design-64256450.jpg");
 }
-
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-/* ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-li {
-  width: 300px;
-  border: 2px solid black;
-  padding: 5px;
-  margin: 10px;
-}
-
-img {
-  max-width: 100%;
-  height: 200px;
-} */

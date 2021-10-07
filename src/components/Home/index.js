@@ -56,27 +56,31 @@ const Home = () => {
           <button onClick={() => history.push("/wedding")}>Casamento</button>
         </div>
       </div>
-      <ul>
+      <ul className="drinksDiv">
         {beers.map((item, index) => {
           return (
             <li key={index}>
-              <h1>{item.id}</h1>
-              <h2>{item.name}</h2>
-              <img alt={item.name} src={item.image_url} />
-              <h3>{item.first_brewed}</h3>
-              <h4>{item.description}</h4>
-              <h5>
-                {item.volume.value} {item.volume.unit}
-              </h5>
-              <button onClick={() => handleConfraBeersClick(item)}>
-                Adicionar à confraternização
-              </button>
-              <button onClick={() => handlePromBeersClick(item)}>
-                Adicionar à formatura
-              </button>
-              <button onClick={() => handleWeddingBeersClick(item)}>
-                Adicionar ao casamento
-              </button>
+              <div>
+                <h1>{item.id}</h1>
+                <h2>{item.name}</h2>
+                <img alt={item.name} src={item.image_url} />
+                <h3>Fabricação: {item.first_brewed}</h3>
+                <h4>
+                  {item.volume.value} {item.volume.unit}
+                </h4>
+                <h5>{item.description}</h5>
+              </div>
+              <div>
+                <button onClick={() => handleConfraBeersClick(item)}>
+                  Adicionar à confraternização
+                </button>
+                <button onClick={() => handlePromBeersClick(item)}>
+                  Adicionar à formatura
+                </button>
+                <button onClick={() => handleWeddingBeersClick(item)}>
+                  Adicionar ao casamento
+                </button>
+              </div>
             </li>
           );
         })}
